@@ -1,0 +1,16 @@
+visibility = 5;(*能见度*)
+CardPool[hydrophobic_, polar_, charged_, cystine_, seed_] := 
+ Join[SeedRandom[seed]; 
+  RandomSample[
+   Join[Table[Red, {x, 1, hydrophobic}], Table[Green, {x, 1, polar}], 
+    Table[Yellow, {x, 1, cystine}], Table[Blue, {x, 1, charged}]]], 
+  Table[White, {x, 1, visibility}]];
+pool = CardPool[20, 20, 8, 4, 12345];(*依次为疏水、亲水、带电亲水、半胱氨酸的卡牌数量，和随机种子*)
+
+
+a = 1;
+table = DynamicModule[{y}, 
+   Button["Click", {y = pool[[a++]], 
+     t = Dynamic[pool[[a ;; a + visibility - 1]]]}, 
+    FrameMargins -> 0]];
+Panel[table, InputField[{Dynamic[t], Dynamic[a]}]]

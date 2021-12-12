@@ -1,0 +1,197 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7238,        189]
+NotebookOptionsPosition[      6801,        172]
+NotebookOutlinePosition[      7156,        188]
+CellTagsIndexPosition[      7113,        185]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"visibility", "=", "5"}], ";", 
+  RowBox[{"(*", "\:80fd\:89c1\:5ea6", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"CardPool", "[", 
+    RowBox[{
+    "hydrophobic_", ",", " ", "polar_", ",", " ", "charged_", ",", " ", 
+     "cystine_", ",", " ", "seed_"}], "]"}], ":=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"SeedRandom", "[", "seed", "]"}], ";", 
+      RowBox[{"RandomSample", "[", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{"Red", ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "1", ",", "hydrophobic"}], "}"}]}], "]"}], ",", 
+         RowBox[{"Table", "[", 
+          RowBox[{"Green", ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "1", ",", "polar"}], "}"}]}], "]"}], ",", 
+         RowBox[{"Table", "[", 
+          RowBox[{"Yellow", ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "1", ",", "cystine"}], "}"}]}], "]"}], ",", 
+         RowBox[{"Table", "[", 
+          RowBox[{"Blue", ",", 
+           RowBox[{"{", 
+            RowBox[{"x", ",", "1", ",", "charged"}], "}"}]}], "]"}]}], "]"}], 
+       "]"}]}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"White", ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "1", ",", "visibility"}], "}"}]}], "]"}]}], "]"}]}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pool", "=", 
+    RowBox[{"CardPool", "[", 
+     RowBox[{"20", ",", "20", ",", "8", ",", "4", ",", "12345"}], "]"}]}], 
+   ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "\:4f9d\:6b21\:4e3a\:758f\:6c34", "\:3001", "\:4eb2\:6c34", "\:3001", 
+    "\:5e26\:7535\:4eb2\:6c34", "\:3001", 
+    "\:534a\:80f1\:6c28\:9178\:7684\:5361\:724c\:6570\:91cf", "\:ff0c", 
+    "\:548c\:968f\:673a\:79cd\:5b50"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"table", "=", 
+   RowBox[{"DynamicModule", "[", 
+    RowBox[{
+     RowBox[{"{", "y", "}"}], ",", 
+     RowBox[{"Button", "[", 
+      RowBox[{"\"\<Click\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"y", "=", 
+          RowBox[{"pool", "[", 
+           RowBox[{"[", 
+            RowBox[{"a", "++"}], "]"}], "]"}]}], ",", 
+         RowBox[{"t", "=", 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{"pool", "[", 
+            RowBox[{"[", 
+             RowBox[{"a", ";;", 
+              RowBox[{"a", "+", "visibility", "-", "1"}]}], "]"}], "]"}], 
+           "]"}]}]}], "}"}], ",", " ", 
+       RowBox[{"FrameMargins", "\[Rule]", "0"}]}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Panel", "[", 
+  RowBox[{"table", ",", 
+   RowBox[{"InputField", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Dynamic", "[", "t", "]"}], ",", 
+      RowBox[{"Dynamic", "[", "a", "]"}]}], "}"}], "]"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.848289376675255*^9, 3.8482893955610714`*^9}, {
+  3.8482894317530327`*^9, 3.8482894378229666`*^9}, {3.8482894866461935`*^9, 
+  3.8482895804197674`*^9}, {3.8482896379288344`*^9, 3.8482897582502813`*^9}, {
+  3.8482897946832047`*^9, 3.8482898746201925`*^9}, {3.848289938767578*^9, 
+  3.8482899606881814`*^9}, {3.8482899965257964`*^9, 3.848290034987974*^9}, {
+  3.8482901009408503`*^9, 3.8482901767793016`*^9}, {3.848290211612163*^9, 
+  3.848290214658718*^9}, {3.848290253857915*^9, 3.8482903879753222`*^9}, {
+  3.848290426008677*^9, 3.8482904305893917`*^9}, {3.84829046270816*^9, 
+  3.8482905987705975`*^9}, {3.8482906339185057`*^9, 3.8482906965612493`*^9}, {
+  3.8482907418592987`*^9, 3.8482907651097174`*^9}, {3.848290848776938*^9, 
+  3.8482909182857356`*^9}},ExpressionUUID->"02aca935-6dbb-4f63-acf7-\
+7dfe5e2eebd5"],
+
+Cell[BoxData[
+ TemplateBox[{PanelBox[
+    DynamicModuleBox[{$CellContext`y$$}, 
+     ButtonBox[
+     "\"Click\"", 
+      ButtonFunction :> {$CellContext`y$$ = Part[$CellContext`pool, 
+          Increment[$CellContext`a]], $CellContext`t = Dynamic[
+          Part[$CellContext`pool, 
+           
+           Span[$CellContext`a, $CellContext`a + $CellContext`visibility - 
+            1]]]}, FrameMargins -> 0, Appearance -> Automatic, Evaluator -> 
+      Automatic, Method -> "Preemptive"], DynamicModuleValues :> {}]],TagBox[
+    DynamicModuleBox[{Typeset`i$$ = {
+        Dynamic[$CellContext`t], 
+        Dynamic[$CellContext`a]}}, 
+     InputFieldBox[
+      Dynamic[Typeset`i$$]], DynamicModuleValues :> {}], InputField[
+     Setting[#]]& ]},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[#2, Alignment -> {Left, Inherited}, DefaultBaseStyle -> 
+       "PanelLabel"]}, {
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {2, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"{", #2, "}"}], ",", 
+       RowBox[{"{", 
+         RowBox[{"{", 
+           RowBox[{"Top", ",", "Left"}], "}"}], "}"}], ",", 
+       RowBox[{"DefaultLabelStyle", "\[Rule]", "\"PanelLabel\""}], ",", 
+       RowBox[{"LabelStyle", "\[Rule]", 
+         RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"RotateLabel", "\[Rule]", "False"}], ",", 
+       RowBox[{"Spacings", "\[Rule]", "Automatic"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{
+  3.8482893673655753`*^9, {3.8482898489975367`*^9, 3.8482898753812294`*^9}, {
+   3.848289928043412*^9, 3.8482899611405525`*^9}, {3.848290002321456*^9, 
+   3.8482900353646836`*^9}, {3.8482901096329374`*^9, 3.848290121462469*^9}, 
+   3.8482902177117176`*^9, {3.848290261557536*^9, 3.8482903883721294`*^9}, 
+   3.848290431030244*^9, 3.8482904631714077`*^9, {3.848290499596933*^9, 
+   3.848290537651743*^9}, {3.8482906561437044`*^9, 3.848290703699728*^9}, 
+   3.8482907706529408`*^9, {3.848290895041627*^9, 3.8482909118576303`*^9}},
+ CellLabel->
+  "Out[913]=",ExpressionUUID->"af2aa7d5-e5f7-44c8-b1b9-7dc1051cf745"]
+}, Open  ]]
+},
+WindowSize->{1902, 987},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (2019\:5e745\:670818\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 3740, 93, 234, "Input",ExpressionUUID->"02aca935-6dbb-4f63-acf7-7dfe5e2eebd5"],
+Cell[4323, 117, 2462, 52, 97, "Output",ExpressionUUID->"af2aa7d5-e5f7-44c8-b1b9-7dc1051cf745"]
+}, Open  ]]
+}
+]
+*)
+
